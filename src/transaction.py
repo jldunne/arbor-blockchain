@@ -12,6 +12,6 @@ class Transaction:
 
         self.body = {'input': self.input, 'output': self.output}
         h = blake2b()
-        h.update(self.body)
+        h.update(str(self.body).encode())
 
         self.header = {'tx_id': h.hexdigest()}
